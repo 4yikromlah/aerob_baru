@@ -4,14 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
   <title>ROBOTIKA - Pendaftaran Anggota</title>
-  <!-- Google Font & Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- html2pdf library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <style>
-    /* ----- CSS SAMA SEPERTI SEBELUMNYA (tidak saya tulis ulang untuk menghemat) ----- */
-    /* Saya salin CSS dari jawaban sebelumnya agar lengkap, tapi di sini saya singkat */
+    /* ----- CSS SAMA SEPERTI SEBELUMNYA (disingkat agar tidak terlalu panjang) ----- */
     *{margin:0;padding:0;box-sizing:border-box}
     :root{--bg:#e8eef5;--bg-card:#f0f5fa;--shadow-light:#ffffff;--shadow-dark:#c8d0d9;--primary:#6c5b7b;--primary-light:#a68bb3;--accent:#e07a5f;--accent-light:#f4a58a;--text:#2d3436;--text-muted:#636e72;--white:#ffffff;--radius:24px;--radius-sm:16px;--neumo-shadow:8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);--neumo-shadow-inset:inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);--clay-shadow:6px 6px 12px rgba(0,0,0,0.10), -6px -6px 12px rgba(255,255,255,0.8);--transition:0.25s ease}
     html{scroll-behavior:smooth}
@@ -160,9 +157,7 @@
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="#" class="logo">
-        <i class="fas fa-robot"></i> ROBOT<span>IKA</span>
-      </a>
+      <a href="#" class="logo"><i class="fas fa-robot"></i> ROBOT<span>IKA</span></a>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#sejarah">Sejarah</a></li>
         <li><a href="#visi-misi">Visi &amp; Misi</a></li>
@@ -171,9 +166,7 @@
         <li><a href="#" class="btn-nav" id="navDaftar"><i class="fas fa-user-plus"></i> Daftar</a></li>
         <li><a href="#" class="btn-nav" id="navAdmin" style="background:var(--accent);"><i class="fas fa-lock"></i> Admin</a></li>
       </ul>
-      <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </div>
   </nav>
 
@@ -182,46 +175,26 @@
     <div class="container">
       <div class="hero-text">
         <h1>Ekstrakurikuler <br /><span class="highlight">ROBOTIKA</span></h1>
-        <p>
-          Wadah pengembangan minat dan bakat di bidang robotika bagi siswa
-          SMA Negeri 1 Bondowoso. Berprestasi, berinovasi, dan membangun masa depan!
-        </p>
+        <p>Wadah pengembangan minat dan bakat di bidang robotika bagi siswa SMA Negeri 1 Bondowoso. Berprestasi, berinovasi, dan membangun masa depan!</p>
         <div class="btn-group">
           <a href="#" class="btn btn-primary" id="heroDaftar"><i class="fas fa-user-plus"></i> Daftar Sekarang</a>
           <a href="#sejarah" class="btn btn-outline"><i class="fas fa-chevron-down"></i> Pelajari</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <i class="fas fa-robot icon-robot"></i>
-      </div>
+      <div class="hero-visual"><i class="fas fa-robot icon-robot"></i></div>
     </div>
   </section>
 
   <!-- ===== SEJARAH ===== -->
   <section class="sejarah" id="sejarah">
     <div class="container">
-      <div class="section-title">
-        <h2>Sejarah Kami</h2>
-        <p>Perjalanan panjang ekstrakurikuler robotika di SMA Negeri 1 Bondowoso</p>
-      </div>
+      <div class="section-title"><h2>Sejarah Kami</h2><p>Perjalanan panjang ekstrakurikuler robotika di SMA Negeri 1 Bondowoso</p></div>
       <div class="sejarah-content">
         <div class="text card">
-          <p>
-            <strong>Ekstrakurikuler ROBOTIKA</strong> SMA Negeri 1 Bondowoso didirikan pada
-            <strong>tahun 2015</strong> oleh sekelompok siswa dan guru yang memiliki
-            ketertarikan tinggi terhadap teknologi dan otomasi.
-          </p>
-          <p>
-            Berbagai prestasi telah kami raih, mulai dari tingkat kabupaten hingga
-            nasional. Kami percaya bahwa robotika adalah jembatan untuk menciptakan
-            generasi muda yang kreatif, logis, dan siap menghadapi tantangan era digital.
-          </p>
+          <p><strong>Ekstrakurikuler ROBOTIKA</strong> SMA Negeri 1 Bondowoso didirikan pada <strong>tahun 2015</strong> oleh sekelompok siswa dan guru yang memiliki ketertarikan tinggi terhadap teknologi dan otomasi.</p>
+          <p>Berbagai prestasi telah kami raih, mulai dari tingkat kabupaten hingga nasional. Kami percaya bahwa robotika adalah jembatan untuk menciptakan generasi muda yang kreatif, logis, dan siap menghadapi tantangan era digital.</p>
         </div>
-        <div class="image-box card-clay">
-          <i class="fas fa-robot"></i>
-          <h3>#BanggaRobotika</h3>
-          <p>Menjadi bagian dari sejarah teknologi di Bondowoso</p>
-        </div>
+        <div class="image-box card-clay"><i class="fas fa-robot"></i><h3>#BanggaRobotika</h3><p>Menjadi bagian dari sejarah teknologi di Bondowoso</p></div>
       </div>
     </div>
   </section>
@@ -229,28 +202,11 @@
   <!-- ===== VISI MISI ===== -->
   <section class="visi-misi" id="visi-misi">
     <div class="container">
-      <div class="section-title">
-        <h2>Visi &amp; Misi</h2>
-        <p>Landasan kami dalam berkarya dan berprestasi</p>
-      </div>
+      <div class="section-title"><h2>Visi &amp; Misi</h2><p>Landasan kami dalam berkarya dan berprestasi</p></div>
       <div class="vm-grid">
-        <div class="vm-card card-clay">
-          <div class="icon"><i class="fas fa-eye"></i></div>
-          <h3>Visi</h3>
-          <p style="color:var(--text-muted);">
-            Menjadi wadah pengembangan minat dan bakat di bidang robotika yang
-            unggul, kreatif, dan berdaya saing global.
-          </p>
-        </div>
-        <div class="vm-card">
-          <div class="icon"><i class="fas fa-bullseye"></i></div>
-          <h3>Misi</h3>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Meningkatkan kreativitas dan inovasi siswa.</li>
-            <li><i class="fas fa-check-circle"></i> Mengembangkan keterampilan teknis dan kerja tim.</li>
-            <li><i class="fas fa-check-circle"></i> Berprestasi di kompetisi robotika.</li>
-            <li><i class="fas fa-check-circle"></i> Menumbuhkan jiwa kepemimpinan.</li>
-          </ul>
+        <div class="vm-card card-clay"><div class="icon"><i class="fas fa-eye"></i></div><h3>Visi</h3><p style="color:var(--text-muted);">Menjadi wadah pengembangan minat dan bakat di bidang robotika yang unggul, kreatif, dan berdaya saing global.</p></div>
+        <div class="vm-card"><div class="icon"><i class="fas fa-bullseye"></i></div><h3>Misi</h3>
+          <ul><li><i class="fas fa-check-circle"></i> Meningkatkan kreativitas dan inovasi siswa.</li><li><i class="fas fa-check-circle"></i> Mengembangkan keterampilan teknis dan kerja tim.</li><li><i class="fas fa-check-circle"></i> Berprestasi di kompetisi robotika.</li><li><i class="fas fa-check-circle"></i> Menumbuhkan jiwa kepemimpinan.</li></ul>
         </div>
       </div>
     </div>
@@ -259,31 +215,12 @@
   <!-- ===== PROGRAM ===== -->
   <section class="program" id="program">
     <div class="container">
-      <div class="section-title">
-        <h2>Program Unggulan</h2>
-        <p>Aktivitas dan pelatihan yang kami selenggarakan</p>
-      </div>
+      <div class="section-title"><h2>Program Unggulan</h2><p>Aktivitas dan pelatihan yang kami selenggarakan</p></div>
       <div class="program-grid">
-        <div class="program-card">
-          <div class="icon"><i class="fas fa-microchip"></i></div>
-          <h4>Dasar Robotika</h4>
-          <p>Pengenalan komponen elektronik, sensor, dan aktuator. Dasar-dasar pemrograman Arduino.</p>
-        </div>
-        <div class="program-card">
-          <div class="icon"><i class="fas fa-route"></i></div>
-          <h4>Line Follower</h4>
-          <p>Merakit dan memprogram robot line follower untuk kompetisi.</p>
-        </div>
-        <div class="program-card">
-          <div class="icon"><i class="fas fa-trophy"></i></div>
-          <h4>Kompetisi</h4>
-          <p>Persiapan intensif untuk mengikuti lomba robotika tingkat kabupaten, provinsi, dan nasional.</p>
-        </div>
-        <div class="program-card">
-          <div class="icon"><i class="fas fa-users-cog"></i></div>
-          <h4>Workshop</h4>
-          <p>Workshop tematik bersama praktisi dan alumni untuk memperluas wawasan teknologi.</p>
-        </div>
+        <div class="program-card"><div class="icon"><i class="fas fa-microchip"></i></div><h4>Dasar Robotika</h4><p>Pengenalan komponen elektronik, sensor, dan aktuator. Dasar-dasar pemrograman Arduino.</p></div>
+        <div class="program-card"><div class="icon"><i class="fas fa-route"></i></div><h4>Line Follower</h4><p>Merakit dan memprogram robot line follower untuk kompetisi.</p></div>
+        <div class="program-card"><div class="icon"><i class="fas fa-trophy"></i></div><h4>Kompetisi</h4><p>Persiapan intensif untuk mengikuti lomba robotika tingkat kabupaten, provinsi, dan nasional.</p></div>
+        <div class="program-card"><div class="icon"><i class="fas fa-users-cog"></i></div><h4>Workshop</h4><p>Workshop tematik bersama praktisi dan alumni untuk memperluas wawasan teknologi.</p></div>
       </div>
     </div>
   </section>
@@ -291,35 +228,16 @@
   <!-- ===== WAKTU ===== -->
   <section class="waktu" id="waktu">
     <div class="container">
-      <div class="section-title">
-        <h2>Waktu Pelaksanaan</h2>
-        <p>Jadwal rutin kegiatan ekstrakurikuler ROBOTIKA</p>
-      </div>
+      <div class="section-title"><h2>Waktu Pelaksanaan</h2><p>Jadwal rutin kegiatan ekstrakurikuler ROBOTIKA</p></div>
       <div class="waktu-box card-clay">
-        <div class="info">
-          <i class="fas fa-calendar-alt"></i>
-          <div class="detail">
-            <h3>Setiap Hari Jumat</h3>
-            <p><i class="fas fa-clock"></i> Pukul 14.00 – 16.00 WIB</p>
-            <p><i class="fas fa-map-pin"></i> Laboratorium Komputer &amp; Robotika, SMA Negeri 1 Bondowoso</p>
-          </div>
-        </div>
-        <div class="badge">
-          <i class="fas fa-flag-checkered"></i> Aktif!
-        </div>
+        <div class="info"><i class="fas fa-calendar-alt"></i><div class="detail"><h3>Setiap Hari Jumat</h3><p><i class="fas fa-clock"></i> Pukul 14.00 – 16.00 WIB</p><p><i class="fas fa-map-pin"></i> Laboratorium Komputer &amp; Robotika, SMA Negeri 1 Bondowoso</p></div></div>
+        <div class="badge"><i class="fas fa-flag-checkered"></i> Aktif!</div>
       </div>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <p>
-        &copy; 2026 <span>ROBOTIKA</span> SMA Negeri 1 Bondowoso &bull;
-        Dibangun dengan <i class="fas fa-heart" style="color:var(--accent);"></i> untuk prestasi
-      </p>
-    </div>
-  </footer>
+  <footer class="footer"><div class="container"><p>&copy; 2026 <span>ROBOTIKA</span> SMA Negeri 1 Bondowoso &bull; Dibangun dengan <i class="fas fa-heart" style="color:var(--accent);"></i> untuk prestasi</p></div></footer>
 
   <!-- ===== TOAST ===== -->
   <div class="toast" id="toast"></div>
@@ -330,98 +248,26 @@
       <button class="close" id="closeDaftar">&times;</button>
       <h2><i class="fas fa-user-plus" style="color:var(--primary);"></i> Pendaftaran Anggota</h2>
       <p class="sub">Isi formulir berikut untuk bergabung dengan ekstrakurikuler ROBOTIKA.</p>
-
       <form id="formDaftar">
-        <div class="form-group">
-          <label>NISN <span class="required">*</span></label>
-          <input type="number" id="nisn" placeholder="Nomor Induk Siswa Nasional" required />
-        </div>
-        <div class="form-group">
-          <label>Nama Lengkap <span class="required">*</span></label>
-          <input type="text" id="nama" placeholder="Masukkan nama lengkap" required />
-        </div>
-        <div class="form-group">
-          <label>Nama Orang Tua / Wali <span class="required">*</span></label>
-          <input type="text" id="orangtua" placeholder="Nama orang tua atau wali" required />
-        </div>
-        <div class="form-group">
-          <label>Kelas <span class="required">*</span></label>
-          <input type="text" id="kelas" placeholder="Contoh: X IPA 1, XI IPS 2, XII MIPA 3" required />
-        </div>
-        <div class="form-group">
-          <label>Tempat, Tanggal Lahir <span class="required">*</span></label>
-          <input type="text" id="tempat_lahir" placeholder="Contoh: Bondowoso, 2008-05-15" required />
-        </div>
-        <div class="form-group">
-          <label>Hobi</label>
-          <input type="text" id="hobi" placeholder="Misal: traveling, membaca" />
-        </div>
-        <div class="form-group">
-          <label>Cita-cita</label>
-          <input type="text" id="citacita" placeholder="Misal: insinyur, pilot" />
-        </div>
-        <div class="form-group">
-          <label>Email <span class="required">*</span></label>
-          <input type="email" id="email" placeholder="Alamat email aktif" required />
-        </div>
-        <div class="form-group">
-          <label>WhatsApp <span class="required">*</span></label>
-          <input type="tel" id="wa" placeholder="Contoh: 081234567890" required />
-        </div>
-        <div class="form-group">
-          <label>Asal Instansi / Sekolah <span class="required">*</span></label>
-          <input type="text" id="asal_sekolah" placeholder="Nama sekolah asal" value="SMA Negeri 1 Bondowoso" required />
-        </div>
-        <div class="form-group">
-          <label>Tingkat Pemahaman <span class="required">*</span></label>
-          <select id="tingkat" required>
-            <option value="">Pilih Tingkat</option>
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Motivasi Bergabung <span class="required">*</span></label>
-          <textarea id="motivasi" placeholder="Tuliskan motivasi Anda bergabung dengan ROBOTIKA..." required></textarea>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-submit" id="btnDaftarSubmit">
-            <i class="fas fa-paper-plane"></i> Kirim Pendaftaran
-          </button>
-        </div>
+        <div class="form-group"><label>NISN <span class="required">*</span></label><input type="number" id="nisn" placeholder="Nomor Induk Siswa Nasional" required /></div>
+        <div class="form-group"><label>Nama Lengkap <span class="required">*</span></label><input type="text" id="nama" placeholder="Masukkan nama lengkap" required /></div>
+        <div class="form-group"><label>Nama Orang Tua / Wali <span class="required">*</span></label><input type="text" id="orangtua" placeholder="Nama orang tua atau wali" required /></div>
+        <div class="form-group"><label>Kelas <span class="required">*</span></label><input type="text" id="kelas" placeholder="Contoh: X IPA 1, XI IPS 2, XII MIPA 3" required /></div>
+        <div class="form-group"><label>Tempat, Tanggal Lahir <span class="required">*</span></label><input type="text" id="tempat_lahir" placeholder="Contoh: Bondowoso, 2008-05-15" required /></div>
+        <div class="form-group"><label>Hobi</label><input type="text" id="hobi" placeholder="Misal: traveling, membaca" /></div>
+        <div class="form-group"><label>Cita-cita</label><input type="text" id="citacita" placeholder="Misal: insinyur, pilot" /></div>
+        <div class="form-group"><label>Email <span class="required">*</span></label><input type="email" id="email" placeholder="Alamat email aktif" required /></div>
+        <div class="form-group"><label>WhatsApp <span class="required">*</span></label><input type="tel" id="wa" placeholder="Contoh: 081234567890" required /></div>
+        <div class="form-group"><label>Asal Instansi / Sekolah <span class="required">*</span></label><input type="text" id="asal_sekolah" placeholder="Nama sekolah asal" value="SMA Negeri 1 Bondowoso" required /></div>
+        <div class="form-group"><label>Tingkat Pemahaman <span class="required">*</span></label><select id="tingkat" required><option value="">Pilih Tingkat</option><option value="Beginner">Beginner</option><option value="Intermediate">Intermediate</option><option value="Advanced">Advanced</option></select></div>
+        <div class="form-group"><label>Motivasi Bergabung <span class="required">*</span></label><textarea id="motivasi" placeholder="Tuliskan motivasi Anda bergabung dengan ROBOTIKA..." required></textarea></div>
+        <div class="form-group"><button type="submit" class="btn btn-primary btn-submit" id="btnDaftarSubmit"><i class="fas fa-paper-plane"></i> Kirim Pendaftaran</button></div>
       </form>
-
       <div id="ringkasanPendaftaran">
-        <div class="kop-surat">
-          <div class="logo-left">
-            <i class="fas fa-plane"></i>
-            <span class="label">AEROB</span>
-          </div>
-          <div class="title-center">
-            Formulir Pendaftaran
-            <small>Ekstrakurikuler ROBOTIKA</small>
-          </div>
-          <div class="logo-right">
-            <i class="fas fa-school"></i>
-            <span class="label">SMASA</span>
-          </div>
-        </div>
-
-        <h3 style="color:var(--primary); margin-bottom: 12px;"><i class="fas fa-check-circle"></i> Pendaftaran Berhasil!</h3>
+        <div class="kop-surat"><div class="logo-left"><i class="fas fa-plane"></i><span class="label">AEROB</span></div><div class="title-center">Formulir Pendaftaran <small>Ekstrakurikuler ROBOTIKA</small></div><div class="logo-right"><i class="fas fa-school"></i><span class="label">SMASA</span></div></div>
+        <h3 style="color:var(--primary); margin-bottom:12px;"><i class="fas fa-check-circle"></i> Pendaftaran Berhasil!</h3>
         <div id="ringkasanContent"></div>
-
-        <div class="signature-area">
-          <div class="sign-box">
-            <div class="line"></div>
-            <div class="label">Siswa Pendaftar</div>
-          </div>
-          <div class="sign-box">
-            <div class="line"></div>
-            <div class="label">Orang Tua / Wali</div>
-          </div>
-        </div>
-
+        <div class="signature-area"><div class="sign-box"><div class="line"></div><div class="label">Siswa Pendaftar</div></div><div class="sign-box"><div class="line"></div><div class="label">Orang Tua / Wali</div></div></div>
         <div class="aksi-ringkasan" id="aksiRingkasan">
           <button class="btn btn-primary btn-icon" id="btnCetak"><i class="fas fa-print"></i> Cetak</button>
           <button class="btn btn-accent btn-icon" id="btnDownloadPDF"><i class="fas fa-file-pdf"></i> Download PDF</button>
@@ -437,31 +283,19 @@
       <button class="close" id="closeAdmin">&times;</button>
       <h2><i class="fas fa-lock" style="color:var(--accent);"></i> Admin Panel</h2>
       <p class="sub">Kelola data pendaftaran anggota ROBOTIKA.</p>
-
       <div id="adminLoginBox">
-        <div class="admin-login">
-          <input type="password" id="adminPassword" placeholder="Masukkan password admin" />
-          <button class="btn btn-accent" id="btnAdminLogin"><i class="fas fa-sign-in-alt"></i> Login</button>
-        </div>
+        <div class="admin-login"><input type="password" id="adminPassword" placeholder="Masukkan password admin" /><button class="btn btn-accent" id="btnAdminLogin"><i class="fas fa-sign-in-alt"></i> Login</button></div>
         <p style="font-size:0.85rem;color:var(--text-muted);">Password default: <strong style="color:var(--primary);">admin123</strong></p>
       </div>
-
       <div id="adminDashboard" style="display:none;">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
           <span style="font-weight:600;color:var(--primary);"><i class="fas fa-users"></i> Total Pendaftar: <span id="totalPendaftar">0</span></span>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button class="btn btn-primary btn-sm" id="btnRefreshData"><i class="fas fa-sync"></i> Refresh</button>
-            <button class="btn btn-accent btn-sm" id="btnAdminLogout"><i class="fas fa-sign-out-alt"></i> Logout</button>
-          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;"><button class="btn btn-primary btn-sm" id="btnRefreshData"><i class="fas fa-sync"></i> Refresh</button><button class="btn btn-accent btn-sm" id="btnAdminLogout"><i class="fas fa-sign-out-alt"></i> Logout</button></div>
         </div>
         <div class="admin-table-wrap">
           <table class="admin-table" id="adminTable">
-            <thead>
-              <tr><th>#</th><th>Nama</th><th>NISN</th><th>Kelas</th><th>Tingkat</th><th>WA</th><th>Waktu</th><th>Aksi</th></tr>
-            </thead>
-            <tbody id="adminTableBody">
-              <tr><td colspan="8" class="empty">Belum ada data pendaftar.</td></tr>
-            </tbody>
+            <thead><tr><th>#</th><th>Nama</th><th>NISN</th><th>Kelas</th><th>Tingkat</th><th>WA</th><th>Waktu</th><th>Aksi</th></tr></thead>
+            <tbody id="adminTableBody"><tr><td colspan="8" class="empty">Belum ada data pendaftar.</td></tr></tbody>
           </table>
         </div>
       </div>
@@ -470,19 +304,15 @@
 
   <!-- ===== MODAL PREVIEW ===== -->
   <div class="modal-overlay" id="previewModal">
-    <div class="modal">
-      <button class="close" id="closePreview">&times;</button>
-      <div id="previewContent"></div>
-    </div>
+    <div class="modal"><button class="close" id="closePreview">&times;</button><div id="previewContent"></div></div>
   </div>
 
   <script>
     // ========================
     // KONFIGURASI
     // ========================
-    // 🔥 Gunakan URL Apps Script terbaru Anda
     const URL_DEPLOY = 'https://script.google.com/macros/s/AKfycbwganZvx0jkynfD8irSL1BSvUo_4B1A12Db1tau7BxNfKRYSsO7TUuUx8E64dZrSM02FQ/exec';
-    const USE_LOCAL = false; // false = Google Sheets
+    const USE_LOCAL = false;
     const ADMIN_PASSWORD = 'admin123';
 
     // ========================
@@ -586,7 +416,7 @@
     }
 
     // ========================
-    // SUBMIT FORM (PERBAIKAN DENGAN no-cors)
+    // SUBMIT FORM (PERBAIKAN DENGAN FormData & no-cors)
     // ========================
     formDaftar.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -619,7 +449,6 @@
 
       try {
         if (USE_LOCAL) {
-          // Mode lokal
           let pendaftar = JSON.parse(localStorage.getItem('pendaftar_robotika') || '[]');
           data.waktu = new Date().toLocaleString('id-ID');
           data.id = Date.now();
@@ -628,18 +457,19 @@
           showRingkasan(data);
           showToast('Pendaftaran berhasil! (Lokal)', 'success');
         } else {
-          // 🔥 Kirim dengan mode no-cors untuk menghindari CORS
-          await fetch(URL_DEPLOY + '?action=daftar', {
+          // 🔥 Gunakan FormData dan mode no-cors tanpa header Content-Type
+          const formData = new FormData();
+          formData.append('action', 'daftar');
+          formData.append('data', JSON.stringify(data));
+
+          await fetch(URL_DEPLOY, {
             method: 'POST',
-            mode: 'no-cors', // 🔥 Kunci: no-cors
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ data: data })
+            mode: 'no-cors', // no-cors tetap aman
+            // Jangan set header Content-Type agar browser otomatis pakai multipart/form-data
+            body: formData
           });
 
-          // Karena no-cors tidak mengembalikan response yang bisa dibaca,
-          // kita asumsikan sukses dan langsung tampilkan ringkasan.
+          // Karena no-cors tidak mengembalikan response, asumsikan sukses
           showRingkasan(data);
           showToast('Pendaftaran berhasil dikirim!', 'success');
         }
@@ -735,7 +565,6 @@
         if (USE_LOCAL) {
           data = JSON.parse(localStorage.getItem('pendaftar_robotika') || '[]');
         } else {
-          // Untuk GET, kita gunakan cors (biasanya tidak ada preflight untuk GET)
           const response = await fetch(URL_DEPLOY + '?action=getData', {
             method: 'GET',
             mode: 'cors',
@@ -877,7 +706,7 @@
     } else {
       console.log('🌐 Mode DEPLOY, URL_DEPLOY:', URL_DEPLOY);
     }
-    console.log('✅ ROBOTIKA Web dengan no-cors siap!');
+    console.log('✅ ROBOTIKA Web dengan FormData + no-cors siap!');
   </script>
 </body>
 </html>
