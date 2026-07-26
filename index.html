@@ -150,6 +150,635 @@
     .form-hidden{display:none!important}
     #previewModal .modal{max-width:800px}
     #previewModal .modal .aksi-ringkasan{display:flex!important}
+    ```html
+<!-- =========================================================
+     TAMBAHKAN CSS INI DI DALAM <style>
+     ========================================================= -->
+
+.persetujuan-orangtua {
+  margin-top: 24px;
+  padding: 20px 22px;
+  background: #faf8f6;
+  border: 1px solid #d8d2ce;
+  border-left: 4px solid var(--primary);
+  border-radius: 12px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.persetujuan-orangtua .persetujuan-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 12px;
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.persetujuan-orangtua .persetujuan-title i {
+  font-size: 1rem;
+}
+
+.persetujuan-orangtua p {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.persetujuan-orangtua strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.pdf-document {
+  background: #ffffff;
+  color: #222222;
+  padding: 4px;
+}
+
+.pdf-document .persetujuan-orangtua {
+  background: #ffffff;
+  border: 1px solid #999999;
+  border-left: 4px solid #333333;
+}
+
+.pdf-document .persetujuan-orangtua .persetujuan-title,
+.pdf-document .persetujuan-orangtua p,
+.pdf-document .persetujuan-orangtua strong {
+  color: #222222;
+}
+
+.pdf-cut-line {
+  margin: 24px 0 18px;
+  border-top: 2px dashed #777;
+  position: relative;
+  text-align: center;
+  page-break-inside: avoid;
+}
+
+.pdf-cut-line span {
+  position: relative;
+  top: -12px;
+  background: #ffffff;
+  padding: 0 12px;
+  color: #666;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+@media print {
+  .persetujuan-orangtua {
+    background: #ffffff !important;
+    border: 1px solid #888888 !important;
+    border-left: 4px solid #222222 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .persetujuan-orangtua .persetujuan-title,
+  .persetujuan-orangtua p,
+  .persetujuan-orangtua strong {
+    color: #000000 !important;
+  }
+
+  .pdf-cut-line {
+    border-top: 2px dashed #555 !important;
+  }
+
+  .pdf-cut-line span {
+    background: #ffffff !important;
+    color: #333333 !important;
+  }
+}
+```
+
+```javascript
+// =========================================================
+// HELPER: FORMAT TANGGAL INDONESIA
+// =========================================================
+
+function formatTanggalIndonesia(dateValue) {
+  if (!dateValue) {
+    return '-';
+  }
+
+  try {
+    const date = new Date(dateValue);
+
+    if (isNaN(date.getTime())) {
+      return dateValue;
+    }
+
+    return date.toLocaleDateString('id-ID', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric'
+    });
+  } catch (err) {
+    return dateValue;
+  }
+}
+
+
+// =========================================================
+// HELPER: FORMAT NAMA FILE PDF
+// =========================================================
+
+function safeFileName(name) {
+  return String(name || 'anggota')
+    .trim()
+    .replace(/[^a-zA-Z0-9_\- ]/g, '')
+    .replace(/\s+/g, '_')
+    .substring(0, 80);
+}
+
+
+// =========================================================
+// RINGKASAN PENDAFTAR
+// =========================================================
+
+function showRingkasan(data) {
+  formDaftar.classList.add('form-hidden');
+  ringkasan.style.display = 'block';
+
+  const fields = [
+    { label: 'ID Registrasi', value: data.idReg || '-' },
+    { label: 'Tanggal Daftar', value: data.tglDaftar || '-' },
+    { label: 'NISN', value: data.nisn || '-' },
+    { label: 'Nama Lengkap', value: data.nama || '-' },
+    { label: 'Nama Orang Tua / Wali', value: data.orangtua || '-' },
+    { label: 'Kelas', value: data.kelas || '-' },
+    { label: 'Tempat, Tanggal Lahir', value: data.tempat_lahir || '-' },
+    { label: 'Hobi', value: data.hobi || '-' },
+    { label: 'Cita-cita', value: data.citacita || '-' },
+    { label: 'Email', value: data.email || '-' },
+    { label: 'WhatsApp', value: data.wa || '-' },
+    { label: 'Asal Instansi / Sekolah', value: data.asal_sekolah || '-' },
+    { label: 'Tingkat Pemahaman', value: data.tingkat || '-' },
+    { label: 'Motivasi Bergabung', value: data.motivasi || '-' }
+  ];
+
+  let html = '';
+
+  fields.forEach(f => {
+    html += `
+      <div class="ringkasan-item">
+        <span class="label">${escHtml(f.label)}</span>
+        <span class="value">${escHtml(f.value)}</span>
+      </div>
+    `;
+  });
+
+  // =========================================================
+  // PERNYATAAN PERSETUJUAN ORANG TUA / WALI
+  // =========================================================
+
+  html += `
+    <div class="pdf-cut-line">
+      <span>GUNTING DI SINI UNTUK LEMBAR PERSETUJUAN FISIK</span>
+    </div>
+
+    <div class="persetujuan-orangtua">
+
+      <div class="persetujuan-title">
+        <i class="fas fa-file-signature"></i>
+        PERNYATAAN PERSETUJUAN ORANG TUA / WALI SISWA
+      </div>
+
+      <p>
+        Saya yang bertanda tangan di bawah ini selaku Orang Tua / Wali
+        dari siswa bernama
+        <strong>${escHtml(data.nama || '-')}</strong>
+        (NISN:
+        <strong>${escHtml(data.nisn || '-')}</strong>,
+        Kelas:
+        <strong>${escHtml(data.kelas || '-')}</strong>),
+        menyatakan memberikan persetujuan sepenuhnya kepada anak saya
+        untuk mendaftar, bergabung, dan mengikuti seluruh kegiatan
+        ekstrakurikuler serta pelatihan teknologi di Klub Aeromodeling &amp;
+        Robotika (AEROB) Sekolah Menengah untuk tahun ajaran 2026/2027.
+      </p>
+
+    </div>
+  `;
+
+  ringkasanContent.innerHTML = html;
+}
+
+
+// =========================================================
+// ESC HTML
+// =========================================================
+
+function escHtml(str) {
+  if (str === null || str === undefined || str === '') {
+    return '-';
+  }
+
+  const div = document.createElement('div');
+  div.textContent = String(str);
+
+  return div.innerHTML;
+}
+
+
+// =========================================================
+// CETAK
+// =========================================================
+
+document.getElementById('btnCetak').addEventListener('click', () => {
+  window.print();
+});
+
+
+// =========================================================
+// DOWNLOAD PDF PENDAFTAR
+// =========================================================
+
+document.getElementById('btnDownloadPDF').addEventListener('click', async () => {
+
+  const element = document.getElementById('ringkasanPendaftaran');
+  const aksi = element.querySelector('.aksi-ringkasan');
+
+  if (!element) {
+    showToast('Data pendaftaran tidak ditemukan.', 'error');
+    return;
+  }
+
+  try {
+
+    aksi.style.display = 'none';
+
+    const nama =
+      document.getElementById('nama').value ||
+      'anggota';
+
+    const filename =
+      `Formulir_Pendaftaran_AEROB_${safeFileName(nama)}.pdf`;
+
+    await html2pdf()
+      .set({
+        margin: [0.35, 0.4, 0.35, 0.4],
+
+        filename: filename,
+
+        image: {
+          type: 'jpeg',
+          quality: 0.98
+        },
+
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          letterRendering: true,
+          backgroundColor: '#ffffff'
+        },
+
+        jsPDF: {
+          unit: 'in',
+          format: 'a4',
+          orientation: 'portrait'
+        },
+
+        pagebreak: {
+          mode: ['css', 'legacy']
+        }
+      })
+      .from(element)
+      .save();
+
+    showToast('PDF berhasil dibuat.', 'success');
+
+  } catch (err) {
+
+    console.error('PDF Error:', err);
+
+    showToast(
+      'Gagal membuat PDF: ' + err.message,
+      'error'
+    );
+
+  } finally {
+
+    aksi.style.display = 'flex';
+
+  }
+
+});
+
+
+// =========================================================
+// TUTUP RINGKASAN
+// =========================================================
+
+document
+  .getElementById('btnTutupRingkasan')
+  .addEventListener('click', closeModalDaftar);
+
+
+// =========================================================
+// PREVIEW ADMIN
+// =========================================================
+
+function showPreview(data) {
+
+  const fields = [
+    { label: 'ID Registrasi', value: data.idReg || '-' },
+    {
+      label: 'Tanggal Daftar',
+      value: data.tglDaftar || data.waktu || '-'
+    },
+    { label: 'NISN', value: data.nisn || '-' },
+    { label: 'Nama Lengkap', value: data.nama || '-' },
+    {
+      label: 'Nama Orang Tua / Wali',
+      value: data.orangtua || '-'
+    },
+    { label: 'Kelas', value: data.kelas || '-' },
+    {
+      label: 'Tempat, Tanggal Lahir',
+      value: data.tempat_lahir || '-'
+    },
+    { label: 'Hobi', value: data.hobi || '-' },
+    { label: 'Cita-cita', value: data.citacita || '-' },
+    { label: 'Email', value: data.email || '-' },
+    { label: 'WhatsApp', value: data.wa || '-' },
+    {
+      label: 'Asal Instansi / Sekolah',
+      value: data.asal_sekolah || '-'
+    },
+    {
+      label: 'Tingkat Pemahaman',
+      value: data.tingkat || '-'
+    },
+    {
+      label: 'Motivasi Bergabung',
+      value: data.motivasi || '-'
+    }
+  ];
+
+  let html = `
+    <div class="pdf-document">
+
+      <div class="kop-surat">
+
+        <div class="logo-left">
+          <i class="fas fa-plane"></i>
+          <span class="label">AEROB</span>
+        </div>
+
+        <div class="title-center">
+          Formulir Pendaftaran
+          <small>
+            Ekstrakurikuler ROBOTIKA
+          </small>
+        </div>
+
+        <div class="logo-right">
+          <i class="fas fa-school"></i>
+          <span class="label">SMASA</span>
+        </div>
+
+      </div>
+
+      <h3 style="color:var(--primary);margin-bottom:12px;">
+        <i class="fas fa-file-pdf"></i>
+        Preview Pendaftaran
+      </h3>
+
+      <div id="previewRingkasan">
+  `;
+
+  fields.forEach(f => {
+
+    html += `
+      <div class="ringkasan-item">
+        <span class="label">
+          ${escHtml(f.label)}
+        </span>
+
+        <span class="value">
+          ${escHtml(f.value)}
+        </span>
+      </div>
+    `;
+
+  });
+
+  // =========================================================
+  // PERNYATAAN ORANG TUA / WALI
+  // =========================================================
+
+  html += `
+
+      <div class="pdf-cut-line">
+        <span>GUNTING DI SINI UNTUK LEMBAR PERSETUJUAN FISIK</span>
+      </div>
+
+      <div class="persetujuan-orangtua">
+
+        <div class="persetujuan-title">
+          <i class="fas fa-file-signature"></i>
+          PERNYATAAN PERSETUJUAN ORANG TUA / WALI SISWA
+        </div>
+
+        <p>
+          Saya yang bertanda tangan di bawah ini selaku Orang Tua / Wali
+          dari siswa bernama
+          <strong>${escHtml(data.nama || '-')}</strong>
+          (NISN:
+          <strong>${escHtml(data.nisn || '-')}</strong>,
+          Kelas:
+          <strong>${escHtml(data.kelas || '-')}</strong>),
+          menyatakan memberikan persetujuan sepenuhnya kepada anak saya
+          untuk mendaftar, bergabung, dan mengikuti seluruh kegiatan
+          ekstrakurikuler serta pelatihan teknologi di Klub Aeromodeling &amp;
+          Robotika (AEROB) Sekolah Menengah untuk tahun ajaran 2026/2027.
+        </p>
+
+      </div>
+
+      </div>
+
+      <div class="signature-area">
+
+        <div class="sign-box">
+
+          <div class="line"></div>
+
+          <div class="label">
+            Siswa Pendaftar
+          </div>
+
+        </div>
+
+        <div class="sign-box">
+
+          <div class="line"></div>
+
+          <div class="label">
+            Orang Tua / Wali
+          </div>
+
+        </div>
+
+      </div>
+
+      <div
+        class="aksi-ringkasan"
+        id="previewAksi"
+      >
+
+        <button
+          class="btn btn-primary btn-icon"
+          id="previewCetak"
+        >
+          <i class="fas fa-print"></i>
+          Cetak
+        </button>
+
+        <button
+          class="btn btn-accent btn-icon"
+          id="previewDownloadPDF"
+        >
+          <i class="fas fa-file-pdf"></i>
+          Download PDF
+        </button>
+
+        <button
+          class="btn btn-outline btn-icon"
+          id="previewTutup"
+        >
+          <i class="fas fa-times"></i>
+          Tutup
+        </button>
+
+      </div>
+
+    </div>
+  `;
+
+  previewContent.innerHTML = html;
+
+  openPreviewModal();
+
+
+  // =========================================================
+  // CETAK PREVIEW
+  // =========================================================
+
+  document
+    .getElementById('previewCetak')
+    .addEventListener('click', () => {
+
+      window.print();
+
+    });
+
+
+  // =========================================================
+  // DOWNLOAD PDF PREVIEW ADMIN
+  // =========================================================
+
+  document
+    .getElementById('previewDownloadPDF')
+    .addEventListener('click', async () => {
+
+      const element = previewContent;
+      const aksi =
+        document.getElementById('previewAksi');
+
+      try {
+
+        aksi.style.display = 'none';
+
+        const filename =
+          `Formulir_Pendaftaran_AEROB_${safeFileName(
+            data.nama || 'anggota'
+          )}.pdf`;
+
+        await html2pdf()
+          .set({
+
+            margin: [
+              0.35,
+              0.4,
+              0.35,
+              0.4
+            ],
+
+            filename: filename,
+
+            image: {
+              type: 'jpeg',
+              quality: 0.98
+            },
+
+            html2canvas: {
+              scale: 2,
+              useCORS: true,
+              letterRendering: true,
+              backgroundColor: '#ffffff'
+            },
+
+            jsPDF: {
+              unit: 'in',
+              format: 'a4',
+              orientation: 'portrait'
+            },
+
+            pagebreak: {
+              mode: ['css', 'legacy']
+            }
+
+          })
+          .from(element)
+          .save();
+
+        showToast(
+          'PDF berhasil dibuat.',
+          'success'
+        );
+
+      } catch (err) {
+
+        console.error(
+          'Preview PDF Error:',
+          err
+        );
+
+        showToast(
+          'Gagal membuat PDF: ' +
+          err.message,
+          'error'
+        );
+
+      } finally {
+
+        aksi.style.display = 'flex';
+
+      }
+
+    });
+
+
+  // =========================================================
+  // TUTUP PREVIEW
+  // =========================================================
+
+  document
+    .getElementById('previewTutup')
+    .addEventListener(
+      'click',
+      closePreviewModal
+    );
+
+}
+```
+
   </style>
 </head>
 <body>
