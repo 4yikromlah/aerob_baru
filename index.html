@@ -311,7 +311,7 @@
     // ========================
     // KONFIGURASI
     // ========================
-    const URL_DEPLOY = 'https://script.google.com/macros/s/AKfycbzZycGSwynpHC_oIsHNVyORYCWtcJt5a_iCLV9l3th_JGDe8SqerZ-od7ZhpCa1f7r99A/exec';
+    const URL_DEPLOY = 'https://script.google.com/macros/s/AKfycbzHu8Y2P1WlaQ1HBqkGYSqr-U7VwGAv1gzznrpWsF839rbTiBcgkNn-HLsR5YN5MPIc/exec';
     const USE_LOCAL = false;
     const ADMIN_PASSWORD = 'admin123';
 
@@ -700,13 +700,17 @@
     // ========================
     // INISIALISASI
     // ========================
-    if (USE_LOCAL) {
-      console.log('🔧 Mode LOCAL');
-      if (!localStorage.getItem('pendaftar_robotika')) localStorage.setItem('pendaftar_robotika', JSON.stringify([]));
-    } else {
-      console.log('🌐 Mode DEPLOY, URL_DEPLOY:', URL_DEPLOY);
-    }
-    console.log('✅ ROBOTIKA Web dengan FormData + no-cors siap!');
+    console.log(
+  'ROBOTIKA Web App siap.'
+);
+
+console.log(
+  'Backend: Google Apps Script'
+);
+
+console.log(
+  'Transport: google.script.run'
+);
   </script>
 </body>
 </html>
